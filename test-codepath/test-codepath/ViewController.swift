@@ -65,13 +65,13 @@ class ViewController: UIViewController {
     @IBAction func didTapButton(_ sender: Any) {
         // this will run when button is pressed
         print("you tapped the button")
-        //let colorArr = ["orange", "red", "blue", "yellow", "green"]
         
         textLabel.textColor = UIColor.orange
     }
     
 
-    @IBAction func onResetGesture(_ sender: Any) {
+    @IBAction func onResetGesture(_ sender: Any) { // this tapping gesture is basically same as the previous 
+        // lots of other gestures available
         textLabel.text = "Hello"
         view.backgroundColor = bgColor
         textLabel.textColor = UIColor.black
