@@ -8,6 +8,9 @@ Allows user to change color of background, color of text, and text
 <img src="https://giphy.com/embed/p3hJZOxtnhUZ0uNi6E" width=200><br>
 
 
+<iframe src="https://giphy.com/embed/p3hJZOxtnhUZ0uNi6E" width="236" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/p3hJZOxtnhUZ0uNi6E">via GIPHY</a></p>
+
+
 ### Required User Stories
 - [x] 1. User sees custom text in a label - Hello from {name}!
 - [x] 2. User see's custom background color.
