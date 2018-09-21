@@ -5,8 +5,7 @@ Allows user to change color of background, color of text, and text
 
 ### App Walk-though
 
-<img src="https://www.flickr.com/photos/160635704@N08/shares/P41F6n" width=200><br>
-
+<img src="https://farm2.staticflickr.com/1962/43905544895_a9f620d7ac.jpg" width=200><br>
 
 ### Required User Stories
 - [x] 1. User sees custom text in a label - Hello from {name}!
