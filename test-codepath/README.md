@@ -7,6 +7,9 @@ Allows user to change color of background, color of text, and text
 
 <img src="https://gph.is/2QO9bmU" width=200><br>
 
+![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+
+![Alt Text](https://giphy.com/embed/p3hJZOxtnhUZ0uNi6E)
 
 <iframe src="https://giphy.com/embed/p3hJZOxtnhUZ0uNi6E" width="236" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/p3hJZOxtnhUZ0uNi6E">via GIPHY</a></p>
 
