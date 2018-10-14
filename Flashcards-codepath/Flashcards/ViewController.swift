@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var backLabel: UILabel!
     @IBOutlet weak var frontLabel: UILabel!
     @IBOutlet weak var card: UIView!
@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var btnOptionOne: UIButton!
     @IBOutlet weak var btnOptionTwo: UIButton!
     @IBOutlet weak var btnOptionThree: UIButton!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,15 +45,31 @@ class ViewController: UIViewController {
         btnOptionThree.layer.borderColor = #colorLiteral(red: 0.9666306376, green: 0.590148747, blue: 0.7345550656, alpha: 1);
         btnOptionThree.layer.cornerRadius = 20.0;
         btnOptionThree.clipsToBounds = true;
-        
     }
-
+    
     @IBAction func didTapOnFlashcard(_ sender: Any) {
-        frontLabel.isHidden = frontLabel.isHidden ? false : true; // toggle question visibility
+        if (frontLabel.isHidden){ // answer is showing
+            // i.e. user wants to see the questions and all the choices again
+            // reset everything
+            btnOptionOne.isHidden = false;
+            btnOptionTwo.isHidden = false;
+            btnOptionThree.isHidden = false;
+            frontLabel.isHidden = false; // show question
+        } else { // if question is showing
+            // i.e. user gave up they want to see answer
+//            btnOptionOne.isHidden = true;
+//            btnOptionTwo.isHidden = true;
+//            btnOptionThree.isHidden = true;
+//            frontLabel.isHidden = true; // show answer
+            ViewController.didTapOptionOne();
+        }
     }
     
     @IBAction func didTapOptionOne(_ sender: Any) {
-        frontLabel.isHidden = true;
+        frontLabel.isHidden = true; // show answer
+        btnOptionOne.isHidden = true; // hide all buttons
+        btnOptionTwo.isHidden = true;
+        btnOptionThree.isHidden = true;
     }
     
     @IBAction func didTapOptionTwo(_ sender: Any) {
