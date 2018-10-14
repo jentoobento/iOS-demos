@@ -57,11 +57,7 @@ class ViewController: UIViewController {
             frontLabel.isHidden = false; // show question
         } else { // if question is showing
             // i.e. user gave up they want to see answer
-//            btnOptionOne.isHidden = true;
-//            btnOptionTwo.isHidden = true;
-//            btnOptionThree.isHidden = true;
-//            frontLabel.isHidden = true; // show answer
-            ViewController.didTapOptionOne();
+            self.didTapOptionOne(sender);
         }
     }
     
