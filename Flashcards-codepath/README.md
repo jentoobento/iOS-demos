@@ -5,7 +5,7 @@ User can tap the flashcard to see the answer or choose from multiple choice
 
 ### App Walk-though
 
-<img src="https://media.giphy.com/media/p3hJZOxtnhUZ0uNi6E/giphy.gif" width=200><br>
+<img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard.gif" width=200><br>
 
 
 ### Required User Stories
