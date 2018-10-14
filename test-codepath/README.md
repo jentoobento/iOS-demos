@@ -5,7 +5,7 @@ Allows user to change color of background, color of text, and text
 
 ### App Walk-though
 
-<img src="https://media.giphy.com/media/p3hJZOxtnhUZ0uNi6E/giphy.gif" width=200><br>
+<img src="https://github.com/jentoobento/iOS-demos/blob/master/test-codepath/test-codepath-gif.gif" width=200><br>
 
 
 ### Required User Stories
