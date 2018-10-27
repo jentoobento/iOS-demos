@@ -55,6 +55,11 @@ class ViewController: UIViewController {
         // set flashcards controller property to self
         creationController.flashcardController = self
         
+        // separate different segues with different actions
+        if(segue.identifier == "EditSegue"){
+            creationController.initialQuestion = frontLabel.text
+            creationController.intialAnswer = backLabel.text
+        }
     }
     
     @IBAction func didTapOnFlashcard(_ sender: Any) {
@@ -72,9 +77,14 @@ class ViewController: UIViewController {
         correctLabel.isHidden = true
     }
     
-    func updateFlashcard(question: String, answer: String) {
+    func updateFlashcard(question: String, answer: String, extraAnswer2: String, extraAnswer3: String) {
         frontLabel.text = question
         backLabel.text = answer
+        
+        // change button text
+        btnOptionOne.setTitle(answer, for: .normal)
+        btnOptionTwo.setTitle(extraAnswer2, for: .normal)
+        btnOptionThree.setTitle(extraAnswer3, for: .normal)
     }
     
     @IBAction func didTapOptionOne(_ sender: Any) {

@@ -37,6 +37,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDN-3Z-pft">
+                                        <rect key="frame" x="247" y="190" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="✏️"/>
+                                        <connections>
+                                            <segue destination="Xwa-gL-TF0" kind="show" identifier="EditSegue" id="xpb-gW-2ce"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -137,6 +145,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Multiple Choice Answer #2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1nc-Yx-aCM">
+                                <rect key="frame" x="37" y="232" width="301" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Multiple Choice Answer #3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TC9-JI-Tsj">
+                                <rect key="frame" x="37" y="296" width="301" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="HX0-3k-hbu"/>
@@ -155,6 +177,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="answerTextField" destination="lMC-t5-0zi" id="bUv-aO-wGD"/>
+                        <outlet property="extraAnswer2" destination="1nc-Yx-aCM" id="tTd-wh-Qer"/>
+                        <outlet property="extraAnswer3" destination="TC9-JI-Tsj" id="Bdg-dx-La5"/>
                         <outlet property="questionTextField" destination="1in-Zm-F1Z" id="71m-e3-acj"/>
                     </connections>
                 </viewController>
@@ -181,4 +205,7 @@
             <point key="canvasLocation" x="892" y="134"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="xpb-gW-2ce"/>
+    </inferredMetricsTieBreakers>
 </document>
