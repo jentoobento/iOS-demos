@@ -21,6 +21,8 @@ class CreationViewController: UIViewController {
     
     var initialQuestion: String?
     var intialAnswer: String?
+    var extraAns2: String?
+    var extraAns3: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,8 @@ class CreationViewController: UIViewController {
     
         questionTextField.text = initialQuestion
         answerTextField.text = intialAnswer
+        extraAnswer2.text = extraAns2
+        extraAnswer3.text = extraAns3
     }
     
     @IBAction func didTapOnCancel(_ sender: Any) {
@@ -45,7 +49,7 @@ class CreationViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
         
         // validation
-        if(questionText == nil || answerText == nil || questionText!.isEmpty || answerText!.isEmpty){
+        if(questionText == nil || answerText == nil || questionText!.isEmpty || answerText!.isEmpty || answer2!.isEmpty || answer3!.isEmpty){
             present(alert, animated: true)
         }else{
             flashcardController.updateFlashcard(question: questionText!, answer: answerText!, extraAnswer2: answer2!, extraAnswer3: answer3!)

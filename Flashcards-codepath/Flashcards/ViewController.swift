@@ -59,6 +59,9 @@ class ViewController: UIViewController {
         if(segue.identifier == "EditSegue"){
             creationController.initialQuestion = frontLabel.text
             creationController.intialAnswer = backLabel.text
+            
+            creationController.extraAns2 = btnOptionTwo.titleLabel!.text
+            creationController.extraAns3 = btnOptionThree.titleLabel!.text
         }
     }
     
