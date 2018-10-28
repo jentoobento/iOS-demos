@@ -50,8 +50,11 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // destination of the segue is the navigation controller
         let navigationController = segue.destination as! UINavigationController
+        
         // navigation controller only contains a view controller
         let creationController = navigationController.topViewController as! CreationViewController
+        let settingsController = navigationController.topViewController as! SettingsViewController
+        
         // set flashcards controller property to self
         creationController.flashcardController = self
         
