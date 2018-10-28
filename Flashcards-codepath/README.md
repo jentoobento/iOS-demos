@@ -7,7 +7,9 @@ User can tap flashcard to see the answer, can edit the card and the answers.
 
 ### App Walk-though
 
-<img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard2.gif" width=200><br>
+<img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard2.gif" width=200>
+<img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard2-1.gif" width=200>
+<br>
 
 ## Required
 - [x] User can open the creation screen
