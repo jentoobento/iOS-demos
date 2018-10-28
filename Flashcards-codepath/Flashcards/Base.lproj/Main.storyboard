@@ -89,9 +89,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vss-Il-RGa">
-                                <rect key="frame" x="172" y="617" width="30" height="30"/>
+                                <rect key="frame" x="172" y="610" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="+"/>
+                                <state key="normal" title="➕">
+                                    <color key="titleColor" red="0.91764705879999997" green="0.60784313729999995" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="Xwa-gL-TF0" kind="show" id="a8y-Il-EXT"/>
                                 </connections>
