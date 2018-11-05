@@ -51,20 +51,25 @@ class ViewController: UIViewController {
         // destination of the segue is the navigation controller
         let navigationController = segue.destination as! UINavigationController
         
-        // navigation controller only contains a view controller
-        let creationController = navigationController.topViewController as! CreationViewController
-        let settingsController = navigationController.topViewController as! SettingsViewController
-        
-        // set flashcards controller property to self
-        creationController.flashcardController = self
-        
-        // separate different segues with different actions
-        if(segue.identifier == "EditSegue"){
-            creationController.initialQuestion = frontLabel.text
-            creationController.intialAnswer = backLabel.text
+        if(segue.identifier == "SettingSegue"){
+            let creationController = navigationController.topViewController as! SettingsViewController
+            // set flashcards controller property to self
+            creationController.flashcardController = self
+        }else{
+            // navigation controller only contains a view controller
+            let creationController = navigationController.topViewController as! CreationViewController
+            creationController.flashcardController = self
             
-            creationController.extraAns2 = btnOptionTwo.titleLabel!.text
-            creationController.extraAns3 = btnOptionThree.titleLabel!.text
+            // separate different segues with different actions
+            if(segue.identifier == "EditSegue"){
+                creationController.initialQuestion = frontLabel.text
+                creationController.intialAnswer = backLabel.text
+                
+                creationController.extraAns2 = btnOptionTwo.titleLabel!.text
+                creationController.extraAns3 = btnOptionThree.titleLabel!.text
+            }else if(segue.identifier == "PlusSegue"){
+                print("segue is plus segue")
+            }
         }
     }
     
