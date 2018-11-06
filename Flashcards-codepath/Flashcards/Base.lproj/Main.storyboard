@@ -33,6 +33,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="285" height="225"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.98984009029999998" green="0.80716462529999999" blue="0.96173083770000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <gestureRecognizers/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -49,7 +50,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9IX-0Q-dSb">
-                                <rect key="frame" x="45" y="358" width="285" height="60"/>
+                                <rect key="frame" x="45" y="353" width="285" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="blue">
@@ -88,14 +89,6 @@
                                 <color key="textColor" red="0.47561272170000002" green="0.78272749350000004" blue="0.4549867642" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vss-Il-RGa">
-                                <rect key="frame" x="172" y="610" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="➕"/>
-                                <connections>
-                                    <segue destination="Xwa-gL-TF0" kind="show" identifier="PlusSegue" id="a8y-Il-EXT"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLK-jz-eYl">
                                 <rect key="frame" x="315" y="27" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -104,30 +97,48 @@
                                     <segue destination="bAm-pM-Ud4" kind="show" identifier="SettingSegue" id="93a-sl-4xy"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kD-9E-TYR">
+                                <rect key="frame" x="24" y="617" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Prev"/>
+                                <connections>
+                                    <action selector="didTapPrev:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HC8-pq-CUX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsa-vO-VOP">
+                                <rect key="frame" x="320" y="617" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="didTapNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c9N-dg-r9E"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vss-Il-RGa">
+                                <rect key="frame" x="172" y="617" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="➕"/>
+                                <connections>
+                                    <segue destination="Xwa-gL-TF0" kind="show" identifier="PlusSegue" id="a8y-Il-EXT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="3PL-U1-qAT" appends="YES" id="epK-1X-Y7r"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="backLabel" destination="Rvk-CW-Bxb" id="obP-yQ-IF6"/>
+                        <outlet property="btnNext" destination="gsa-vO-VOP" id="dVK-LP-U1I"/>
                         <outlet property="btnOptionOne" destination="9IX-0Q-dSb" id="vZz-Rb-PRf"/>
                         <outlet property="btnOptionThree" destination="Lgo-BM-IuB" id="0uR-Ra-1Aj"/>
                         <outlet property="btnOptionTwo" destination="oOd-J0-mhj" id="nXw-21-abm"/>
+                        <outlet property="btnPrev" destination="7kD-9E-TYR" id="w2N-ly-a6a"/>
                         <outlet property="card" destination="hHU-2o-fR1" id="IWx-I0-KRN"/>
                         <outlet property="correctLabel" destination="hUp-lc-4x0" id="3RD-5f-ayJ"/>
                         <outlet property="frontLabel" destination="Wfe-Db-YEO" id="i6A-6r-nuJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="3PL-U1-qAT">
-                    <connections>
-                        <action selector="didTapOnFlashcard:" destination="BYZ-38-t0r" id="a3p-ly-A5b"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-7.2000000000000002" y="-148.87556221889056"/>
         </scene>
@@ -360,6 +371,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="a8y-Il-EXT"/>
+        <segue reference="xpb-gW-2ce"/>
     </inferredMetricsTieBreakers>
 </document>
