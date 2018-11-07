@@ -24,10 +24,12 @@ class CreationViewController: UIViewController {
     var extraAns2: String?
     var extraAns3: String?
     
+    var addNew: Bool?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    
+        
         questionTextField.text = initialQuestion
         answerTextField.text = intialAnswer
         extraAnswer2.text = extraAns2
@@ -40,19 +42,23 @@ class CreationViewController: UIViewController {
     
     @IBAction func didTapOnDone(_ sender: Any) {
         
-        let questionText = questionTextField.text
-        let answerText = answerTextField.text
-        let answer2 = extraAnswer2.text
-        let answer3 = extraAnswer3.text
+        let newQuestion = questionTextField.text
+        let newAnswer = answerTextField.text
+        let newAnswer2 = extraAnswer2.text
+        let newAnswer3 = extraAnswer3.text
         
-        let alert = UIAlertController(title: "Missing Text", message: "You must have a question and answers", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Missing Text", message: "You must have a question, answer, and 2 false answers.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
         
         // validation
-        if(questionText == nil || answerText == nil || questionText!.isEmpty || answerText!.isEmpty || answer2!.isEmpty || answer3!.isEmpty){
+        if(newQuestion == nil || newAnswer == nil || newQuestion!.isEmpty || newAnswer!.isEmpty || newAnswer2 == nil || newAnswer2!.isEmpty || newAnswer3 == nil ||  newAnswer3!.isEmpty){
             present(alert, animated: true)
         }else{
-            flashcardController.updateFlashcard(question: questionText!, answer: answerText!, extraAnswer2: answer2!, extraAnswer3: answer3!)
+            
+//            print("question: \(newQuestion) answer: \(newAnswer) answer2: \(newAnswer2) answer3: \(newAnswer3)")
+            
+            // call the update flashcard function from the main view controller
+            flashcardController.updateFlashcard(updatedQuestion: newQuestion!, updatedAnswer: newAnswer!, updatedAnswer2: newAnswer2!, updatedAnswer3: newAnswer3!, addNewCard: addNew!)
             dismiss(animated: true)
         }
     }

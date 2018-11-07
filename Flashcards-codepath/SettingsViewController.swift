@@ -10,6 +10,9 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    // give access to flashcard controller
+    var flashcardController: ViewController!
+    
     @IBOutlet weak var btnPink: UIButton!
     @IBOutlet weak var btnGrey: UIButton!
     @IBOutlet weak var btnGreen: UIButton!
@@ -19,6 +22,14 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func didTapCancel(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
+    @IBAction func didTapDone(_ sender: Any) {
+        print("tap done")
     }
     
     
