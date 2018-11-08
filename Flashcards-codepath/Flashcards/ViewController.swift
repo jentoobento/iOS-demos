@@ -108,6 +108,13 @@ class ViewController: UIViewController {
         // user tapped settings, send user to settings page
         if segue.identifier == "SettingSegue" {
             print("segue is settings")
+            
+            // make the settings view controller accessible by the top view controller
+            let settingController = navigationController.topViewController as! SettingsViewController
+            settingController.flashcardController = self
+            
+            frontLabel.layer.backgroundColor = settingController.chosenColor
+//            backLabel.layer.backgroundColor = settingController.chosenColor
         }
     }
     
@@ -161,7 +168,7 @@ class ViewController: UIViewController {
         
         //        saveAllFlashcardsToDisk()
         
-        print("total cards: \(flashcardArr.count) all flashcards: \(flashcardArr)")
+//        print("total cards: \(flashcardArr.count) all flashcards: \(flashcardArr)")
     }
     
     @IBAction func didTapOptionOne() {

@@ -255,6 +255,9 @@
                                 <state key="normal" title="Green">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapGreen:" destination="YVK-SF-wVn" eventType="touchUpInside" id="yMJ-Zv-PEv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0m-0I-RSG">
                                 <rect key="frame" x="222" y="133" width="46" height="30"/>
