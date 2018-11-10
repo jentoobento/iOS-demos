@@ -1,6 +1,6 @@
 ## Simple Flashcards
 
-## Lab 2
+## Part 2
 
 ### App Description
 User can tap flashcard to see the answer, can edit the card and the answers.
@@ -23,7 +23,7 @@ User can tap flashcard to see the answer, can edit the card and the answers.
 - [x] User can edit existing flashcard
 - [x] User can add multiple choice answers in the creation screen
 
-## Lab 1
+## Part 1
 
 ### App Description
 User can tap the flashcard to see the answer or choose from multiple choice
