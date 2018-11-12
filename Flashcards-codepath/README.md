@@ -8,9 +8,9 @@ User can now create multiple cards and flip through them. User can delete cards 
 ### App Walk-though
 
 <p float="left">
-<img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard2.gif" width=200>
-<img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard2-1.gif" width=200>
-<img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard2-1.gif" width=200>
+<img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard3.gif" width=200>
+<img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard3-1.gif" width=200>
+<img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard3-2.gif" width=200>
 </p>
 <br>
 
