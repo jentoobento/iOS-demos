@@ -72,7 +72,7 @@ class ViewController: UIViewController {
         backLabel.addGestureRecognizer(tapBack)
         
         // read saved flashcards from disk if any
-        //        readSavedFlashcards()
+        readSavedFlashcards()
         
         if flashcardArr.count == 0 {
             updateFlashcard(updatedQuestion: "where in the world is carmen", updatedAnswer: "san diego", updatedAnswer2: "san francisco", updatedAnswer3: "santa monica", addNewCard: true)
@@ -160,7 +160,7 @@ class ViewController: UIViewController {
         // update labels
         updateLabels()
         
-        //        saveAllFlashcardsToDisk()
+        saveAllFlashcardsToDisk()
         
         print("total cards: \(flashcardArr.count) all flashcards: \(flashcardArr)")
     }
@@ -214,13 +214,13 @@ class ViewController: UIViewController {
             return ["question": card.question, "answer":card.answer, "answer2":card.answer2, "answer3":card.answer3]
         }
         print("dictionary: \(dictionaryArr)")
-        UserDefaults.standard.set(flashcardArr, forKey: "flashcardArr")
+        UserDefaults.standard.set(dictionaryArr, forKey: "FlashcardKey")
     }
     
     func readSavedFlashcards(){
         // read dictionary array from disk if any, use dictionary's unique key we gave earlier
         // "if let" will store a value in the variable if it exists
-        if let dictionaryArr = UserDefaults.standard.array(forKey: "flashcardArr") as? [[String: String]]{
+        if let dictionaryArr = UserDefaults.standard.array(forKey: "FlashcardKey") as? [[String: String]]{
             // convert the dictionary back to an array
             let savedCards = dictionaryArr.map{ dictionary -> Flashcard in
                 return Flashcard(question: dictionary["question"]!, answer: dictionary["answer"]!, answer2: dictionary["answer2"]!, answer3: dictionary["answer3"]!)
