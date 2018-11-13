@@ -102,15 +102,12 @@ class ViewController: UIViewController {
                 
                 // make sure correct answer and false ones populate correct text fields in the editing screen
                 if btnOptionOne.titleLabel!.text == backLabel.text {
-                    print("correct answer is btn 1")
                     creationController.extraAns2 = btnOptionTwo.titleLabel!.text
                     creationController.extraAns3 = btnOptionThree.titleLabel!.text
                 } else if btnOptionTwo.titleLabel!.text == backLabel.text {
-                    print("correct answer is btn 2")
                     creationController.extraAns2 = btnOptionOne.titleLabel!.text
                     creationController.extraAns3 = btnOptionThree.titleLabel!.text
                 } else {
-                    print("correct answer is btn 3")
                     creationController.extraAns2 = btnOptionOne.titleLabel!.text
                     creationController.extraAns3 = btnOptionTwo.titleLabel!.text
                 }
