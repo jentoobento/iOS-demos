@@ -129,6 +129,13 @@
                                     <segue destination="Xwa-gL-TF0" kind="show" identifier="PlusSegue" id="a8y-Il-EXT"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0Lv-Ml-xrU">
+                                <rect key="frame" x="45" y="381" width="285" height="199"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -138,6 +145,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="answerDescription" destination="0Lv-Ml-xrU" id="iko-UW-31o"/>
                         <outlet property="backLabel" destination="Rvk-CW-Bxb" id="obP-yQ-IF6"/>
                         <outlet property="btnNext" destination="gsa-vO-VOP" id="dVK-LP-U1I"/>
                         <outlet property="btnOptionOne" destination="9IX-0Q-dSb" id="vZz-Rb-PRf"/>

@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var frontLabel: UILabel! // question
     @IBOutlet weak var card: UIView!
     @IBOutlet weak var correctLabel: UILabel!
+    @IBOutlet weak var answerDescription: UITextView?
     
     @IBOutlet weak var btnOptionOne: UIButton!
     @IBOutlet weak var btnOptionTwo: UIButton!
@@ -35,7 +36,7 @@ class ViewController: UIViewController {
     // current flashcard index
     var currentCard = 0
     
-    @IBAction func makeBtnPretty(btn: UIButton) {
+    func makeBtnPretty(btn: UIButton) {
         btn.layer.borderWidth = 3.0
         btn.layer.borderColor = #colorLiteral(red: 0.968627451, green: 0.8117647059, blue: 0.9607843137, alpha: 1)
         btn.layer.cornerRadius = 20.0
@@ -114,7 +115,7 @@ class ViewController: UIViewController {
     
     @objc func didTapFrontLabel(){
         // user gave up, show answer
-        self.didTapOptionOne()
+        showAnswer(showIsCorrectLabel: false)
         correctLabel.isHidden = true
     }
     
@@ -124,7 +125,6 @@ class ViewController: UIViewController {
         btnOptionTwo.isHidden = false
         btnOptionThree.isHidden = false
         frontLabel.isHidden = false // show question
-        
         correctLabel.isHidden = true
     }
     
@@ -132,9 +132,19 @@ class ViewController: UIViewController {
         frontLabel.text = flashcardArr[currentCard].question
         backLabel.text = flashcardArr[currentCard].answer
         
-        btnOptionOne.setTitle(flashcardArr[currentCard].answer, for: .normal)
-        btnOptionTwo.setTitle(flashcardArr[currentCard].answer2, for: .normal)
-        btnOptionThree.setTitle(flashcardArr[currentCard].answer3, for: .normal)
+        var answerArr = [String]()
+        answerArr.append(flashcardArr[currentCard].answer)
+        answerArr.append(flashcardArr[currentCard].answer2)
+        answerArr.append(flashcardArr[currentCard].answer3)
+        answerArr.shuffle()
+        
+        btnOptionOne.setTitle(answerArr[0], for: .normal)
+        btnOptionTwo.setTitle(answerArr[1], for: .normal)
+        btnOptionThree.setTitle(answerArr[2], for: .normal) 
+        
+        //        btnOptionOne.setTitle(flashcardArr[currentCard].answer, for: .normal)
+        //        btnOptionTwo.setTitle(flashcardArr[currentCard].answer2, for: .normal)
+        //        btnOptionThree.setTitle(flashcardArr[currentCard].answer3, for: .normal)
         
         // make sure the next and prev buttons are properly disabled
         updateNextAndPrevButtons()
@@ -157,28 +167,40 @@ class ViewController: UIViewController {
             // update the current index with the edited flashcard object
             flashcardArr[currentCard] = flashcard
         }
+        
         // update labels
         updateLabels()
         
+        // save changes
         saveAllFlashcardsToDisk()
-        
-        print("total cards: \(flashcardArr.count) all flashcards: \(flashcardArr)")
     }
     
     @IBAction func didTapOptionOne() {
+        determineCorrectAnswer(btn: btnOptionOne)
+    }
+    
+    @IBAction func didTapOptionTwo() {
+        determineCorrectAnswer(btn: btnOptionTwo)
+    }
+    
+    @IBAction func didTapOptionThree() {
+        determineCorrectAnswer(btn: btnOptionThree)
+    }
+    
+    func determineCorrectAnswer(btn: UIButton){
+        if btn.currentTitle == backLabel.text {
+            showAnswer(showIsCorrectLabel: true)
+        }else{
+            btn.isHidden = true
+        }
+    }
+    
+    func showAnswer(showIsCorrectLabel: Bool){
         frontLabel.isHidden = true // show answer
         btnOptionOne.isHidden = true // hide all buttons
         btnOptionTwo.isHidden = true
         btnOptionThree.isHidden = true
-        correctLabel.isHidden = false
-    }
-    
-    @IBAction func didTapOptionTwo() {
-        btnOptionTwo.isHidden = true
-    }
-    
-    @IBAction func didTapOptionThree() {
-        btnOptionThree.isHidden = true
+        correctLabel.isHidden = showIsCorrectLabel ? false : true
     }
     
     func updateNextAndPrevButtons(){
@@ -233,7 +255,7 @@ class ViewController: UIViewController {
     @IBAction func didTapDelete(_ sender: Any) {
         // confirm deletion
         let alert = UIAlertController(title: "Delete Flashcard", message: "Are you sure you want to delete this flashcard?", preferredStyle: .actionSheet)
-        // destructive makes the GUI look red and bold
+        // "destructive" makes the GUI look red and bold
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
             self.deleteCurrentCard()
         }
@@ -256,12 +278,12 @@ class ViewController: UIViewController {
             flashcardArr.remove(at: currentCard)
             
             // move current index if deleting last card
-            if currentCard > flashcardArr.count - 1 {
-                currentCard = flashcardArr.count - 1
-            }
+            currentCard = currentCard > flashcardArr.count - 1 ? flashcardArr.count - 1 : currentCard
             
             updateLabels()
-            //        saveAllFlashcardsToDisk()
+            
+            // save changes
+            saveAllFlashcardsToDisk()
         }
     }
 }
