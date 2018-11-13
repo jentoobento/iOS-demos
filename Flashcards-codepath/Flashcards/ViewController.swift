@@ -13,6 +13,7 @@ struct Flashcard {
     var answer: String
     var answer2: String
     var answer3: String
+    var description: String? = nil
 }
 
 class ViewController: UIViewController {
@@ -76,7 +77,7 @@ class ViewController: UIViewController {
         readSavedFlashcards()
         
         if flashcardArr.count == 0 {
-            updateFlashcard(updatedQuestion: "where in the world is carmen", updatedAnswer: "san diego", updatedAnswer2: "san francisco", updatedAnswer3: "santa monica", addNewCard: true)
+            updateFlashcard(updatedQuestion: "where in the world is carmen", updatedAnswer: "san diego", updatedAnswer2: "san francisco", updatedAnswer3: "santa monica", answerDescription: nil, addNewCard: true)
         }else{
             updateLabels()
             updateNextAndPrevButtons()
@@ -98,9 +99,9 @@ class ViewController: UIViewController {
             if segue.identifier == "EditSegue" {
                 creationController.initialQuestion = frontLabel.text
                 creationController.intialAnswer = backLabel.text
-                
                 creationController.extraAns2 = btnOptionTwo.titleLabel!.text
                 creationController.extraAns3 = btnOptionThree.titleLabel!.text
+                creationController.initialDesc = answerDescription?.text
             }
             // determine whether user is editing or adding a card
             creationController.addNew = segue.identifier == "PlusSegue" ? true : false
@@ -125,12 +126,16 @@ class ViewController: UIViewController {
         btnOptionTwo.isHidden = false
         btnOptionThree.isHidden = false
         frontLabel.isHidden = false // show question
+        answerDescription?.isHidden = true
+        answerDescription?.isEditable = false
         correctLabel.isHidden = true
     }
     
     func updateLabels() {
         frontLabel.text = flashcardArr[currentCard].question
         backLabel.text = flashcardArr[currentCard].answer
+        // if answerDescription has a value, use it, else use nil
+        answerDescription?.text = flashcardArr[currentCard].description
         
         var answerArr = [String]()
         answerArr.append(flashcardArr[currentCard].answer)
@@ -140,22 +145,19 @@ class ViewController: UIViewController {
         
         btnOptionOne.setTitle(answerArr[0], for: .normal)
         btnOptionTwo.setTitle(answerArr[1], for: .normal)
-        btnOptionThree.setTitle(answerArr[2], for: .normal) 
-        
-        //        btnOptionOne.setTitle(flashcardArr[currentCard].answer, for: .normal)
-        //        btnOptionTwo.setTitle(flashcardArr[currentCard].answer2, for: .normal)
-        //        btnOptionThree.setTitle(flashcardArr[currentCard].answer3, for: .normal)
+        btnOptionThree.setTitle(answerArr[2], for: .normal)
         
         // make sure the next and prev buttons are properly disabled
         updateNextAndPrevButtons()
         
-        didTapBackLabel() // reset everything
+        // reset everything
+        didTapBackLabel()
     }
     
-    func updateFlashcard(updatedQuestion: String, updatedAnswer: String, updatedAnswer2: String, updatedAnswer3: String, addNewCard: Bool) {
+    func updateFlashcard(updatedQuestion: String, updatedAnswer: String, updatedAnswer2: String, updatedAnswer3: String, answerDescription: String?, addNewCard: Bool) {
         
         // create the flashcard object
-        let flashcard = Flashcard(question: updatedQuestion, answer: updatedAnswer, answer2: updatedAnswer2, answer3: updatedAnswer3)
+        let flashcard = Flashcard(question: updatedQuestion, answer: updatedAnswer, answer2: updatedAnswer2, answer3: updatedAnswer3, description: answerDescription)
         
         if addNewCard {
             // add flashcard to the flashcard array
@@ -200,6 +202,7 @@ class ViewController: UIViewController {
         btnOptionOne.isHidden = true // hide all buttons
         btnOptionTwo.isHidden = true
         btnOptionThree.isHidden = true
+        answerDescription?.isHidden = false
         correctLabel.isHidden = showIsCorrectLabel ? false : true
     }
     
@@ -233,7 +236,7 @@ class ViewController: UIViewController {
         // "set" means array and it must have a unique string key
         // however user defaults only reads array of dictionaries, must convert to dictionary
         let dictionaryArr = flashcardArr.map { (card) -> [String: String] in
-            return ["question": card.question, "answer":card.answer, "answer2":card.answer2, "answer3":card.answer3]
+            return ["question": card.question, "answer":card.answer, "answer2":card.answer2, "answer3":card.answer3, "description": card.description ?? ""]
         }
         print("dictionary: \(dictionaryArr)")
         UserDefaults.standard.set(dictionaryArr, forKey: "FlashcardKey")
@@ -245,7 +248,7 @@ class ViewController: UIViewController {
         if let dictionaryArr = UserDefaults.standard.array(forKey: "FlashcardKey") as? [[String: String]]{
             // convert the dictionary back to an array
             let savedCards = dictionaryArr.map{ dictionary -> Flashcard in
-                return Flashcard(question: dictionary["question"]!, answer: dictionary["answer"]!, answer2: dictionary["answer2"]!, answer3: dictionary["answer3"]!)
+                return Flashcard(question: dictionary["question"]!, answer: dictionary["answer"]!, answer2: dictionary["answer2"]!, answer3: dictionary["answer3"]!, description: dictionary["description"])
             }
             // add all the cards to the array
             flashcardArr.append(contentsOf: savedCards)
