@@ -15,25 +15,30 @@ class CreationViewController: UIViewController {
     
     @IBOutlet weak var questionTextField: UITextField!
     @IBOutlet weak var answerTextField: UITextField!
-    
     @IBOutlet weak var extraAnswer2: UITextField!
     @IBOutlet weak var extraAnswer3: UITextField!
+    @IBOutlet weak var answerDesc: UITextView!
     
     var initialQuestion: String?
     var intialAnswer: String?
     var extraAns2: String?
     var extraAns3: String?
+    var initialDesc: String? = nil
     
     var addNew: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        questionTextField.becomeFirstResponder()
         
         questionTextField.text = initialQuestion
         answerTextField.text = intialAnswer
         extraAnswer2.text = extraAns2
         extraAnswer3.text = extraAns3
+        
+        answerDesc.layer.borderWidth = 1.0
+        answerDesc.layer.borderColor = #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1)
+        answerDesc.text = initialDesc ?? nil // if initialDesc exists, use it, else use nil
     }
     
     @IBAction func didTapOnCancel(_ sender: Any) {
@@ -41,11 +46,14 @@ class CreationViewController: UIViewController {
     }
     
     @IBAction func didTapOnDone(_ sender: Any) {
-        
+        print("did tap done")
         let newQuestion = questionTextField.text
         let newAnswer = answerTextField.text
         let newAnswer2 = extraAnswer2.text
         let newAnswer3 = extraAnswer3.text
+        
+        // if a value exists for answerDesc, use it, else use nil
+        let newDesc: String? = answerDesc.text
         
         let alert = UIAlertController(title: "Missing Text", message: "You must have a question, answer, and 2 false answers.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
@@ -54,11 +62,8 @@ class CreationViewController: UIViewController {
         if(newQuestion == nil || newAnswer == nil || newQuestion!.isEmpty || newAnswer!.isEmpty || newAnswer2 == nil || newAnswer2!.isEmpty || newAnswer3 == nil ||  newAnswer3!.isEmpty){
             present(alert, animated: true)
         }else{
-            
-//            print("question: \(newQuestion) answer: \(newAnswer) answer2: \(newAnswer2) answer3: \(newAnswer3)")
-            
             // call the update flashcard function from the main view controller
-            flashcardController.updateFlashcard(updatedQuestion: newQuestion!, updatedAnswer: newAnswer!, updatedAnswer2: newAnswer2!, updatedAnswer3: newAnswer3!, addNewCard: addNew!)
+            flashcardController.updateFlashcard(updatedQuestion: newQuestion!, updatedAnswer: newAnswer!, updatedAnswer2: newAnswer2!, updatedAnswer3: newAnswer3!, answerDescription: newDesc, addNewCard: addNew!)
             dismiss(animated: true)
         }
     }

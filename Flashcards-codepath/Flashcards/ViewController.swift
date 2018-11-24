@@ -126,19 +126,37 @@ class ViewController: UIViewController {
     
     @objc func didTapFrontLabel(){
         // user gave up, show answer
-        showAnswer(showIsCorrectLabel: false)
-        correctLabel.isHidden = true
+        flipFlashcard(flag: "front")
     }
     
     @objc func didTapBackLabel(){
         // answer is showing, user wants to see the questions and all the choices again, reset everything
-        btnOptionOne.isHidden = false
-        btnOptionTwo.isHidden = false
-        btnOptionThree.isHidden = false
-        frontLabel.isHidden = false // show question
-        answerDescription?.isHidden = true
-        answerDescription?.isEditable = false
-        correctLabel.isHidden = true
+        flipFlashcard(flag: "back")
+    }
+    
+    func flipFlashcard(flag: String){
+        // with - which container we will be animating
+        // duration - how long the animation will last in seconds
+        // options - what type of animation we want
+        // animations - what code will execute during the animation
+        // completion - what code will execute after the animation is finished (we aren't using this parameter)
+        UIView.transition(with: card, duration: 0.3, options: .transitionFlipFromRight, animations: {
+            // here we put all the code that will execute when the container is in the middle of its animation
+            if flag == "front" {
+                self.showAnswer(showIsCorrectLabel: false)
+                self.correctLabel.isHidden = true
+            } else if flag == "back" {
+                self.btnOptionOne.isHidden = false
+                self.btnOptionTwo.isHidden = false
+                self.btnOptionThree.isHidden = false
+                self.frontLabel.isHidden = false // show question
+                self.answerDescription?.isHidden = true
+                self.answerDescription?.isEditable = false
+                self.correctLabel.isHidden = true
+            } else {
+                self.showAnswer(showIsCorrectLabel: true)
+            }
+        })
     }
     
     func updateLabels() {
@@ -201,7 +219,7 @@ class ViewController: UIViewController {
     
     func determineCorrectAnswer(btn: UIButton){
         if btn.currentTitle == backLabel.text {
-            showAnswer(showIsCorrectLabel: true)
+            flipFlashcard(flag: "correctAnswerChosen")
         }else{
             btn.isHidden = true
         }
@@ -220,16 +238,54 @@ class ViewController: UIViewController {
         // disable the next button if at the last flashcard and vice versa
         btnNext.isEnabled = currentCard == flashcardArr.count - 1 ? false : true
         btnPrev.isEnabled = currentCard == 0 ? false : true
+        //                btnNext.isHidden = currentCard == flashcardArr.count - 1 ? true : false
+        //                btnPrev.isHidden = currentCard == 0 ? true : false
     }
     
     @IBAction func didTapPrev() {
         currentCard -= 1
-        updateLabels() // reset everything
+        animateCardOut(animationDirection: "moveEverythingRight")
     }
     
     @IBAction func didTapNext() {
         currentCard += 1
-        updateLabels()
+        animateCardOut(animationDirection: "moveEverythingLeft")
+    }
+    
+    func animateCardOut(animationDirection: String) {
+        // this will move the flashcard to the left
+        UIView.animate(withDuration: 0.3, animations: {
+            if animationDirection == "moveEverythingLeft"{
+                // move the card to the left by changing the x coordinates
+                self.card.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)
+            }else{
+                // move the card to the right
+                self.card.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
+            }
+            
+        }, completion: { finished in
+            // this block will run after the animation is finished
+            self.updateLabels()
+            
+            // animate the next card in
+            if animationDirection == "moveEverythingLeft"{
+                self.animateCardIn(startingPosition: 300.0)
+            }else{
+                self.animateCardIn(startingPosition: -300.0)
+            }
+            
+        })
+    }
+    
+    func animateCardIn(startingPosition: CGFloat){
+        // this will move the card to the center. start the card offscreen so its not visible then move to center
+        card.transform = CGAffineTransform.identity.translatedBy(x: startingPosition, y: 0.0)
+        
+        // now animate the card going in (to its original position)
+        UIView.animate(withDuration: 0.3) {
+            // the identity method just indicates no transformation at all
+            self.card.transform = CGAffineTransform.identity
+        }
     }
     
     @IBAction func swipeAction(_ gestureRecognizer: UISwipeGestureRecognizer) {
