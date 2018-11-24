@@ -1,5 +1,28 @@
 ## Simple Flashcards
 
+## Part 3
+
+### App Description
+User can now create multiple cards and flip through them. User can delete cards as well and there is verification in place so that the user doesn't delete the last card and crash the app. If user closes the app, all their cards are saved.
+
+### App Walk-though
+
+<p float="left">
+<img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard3.gif" width=200>
+<img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard3-1.gif" width=200>
+<img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard3-2.gif" width=200>
+</p>
+<br>
+
+## Required
+- [x] User can browse through multiple flashcards
+- [x] User can re-open the app and see previously created flashcards
+- [x] Push code to GitHub
+## Optional
+- [x] User can delete a flashcard
+- [x] User can edit existing flashcard
+- [x] User can store multiple choice questions
+
 ## Part 2
 
 ### App Description
