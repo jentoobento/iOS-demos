@@ -3,12 +3,14 @@
 ## Part 4
 
 ### App Description
-`TODO://` Add app description
+Answers are now sorted randomly. Improved overall animations/styling. Added splash page, new images for buttons, sizing for larger screens.
 
 ### App Walk-though
 
 <p float="left">
-<img src="" width=200>
+<img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcards4-1.gif" width=200>
+  <img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcards4-2.gif" width=200>
+  <img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcards4-3.gif" width=200>
 </p>
 <br>
 
