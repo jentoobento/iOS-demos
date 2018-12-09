@@ -79,7 +79,7 @@ User can tap the flashcard to see the answer or choose from multiple choice
 
 ### App Walk-though
 
-<img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard.gif" width=200><br>
+<img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard1-1.gif" width=200><br>
 
 ### Required User Stories
 - [x] 1. User sees question
