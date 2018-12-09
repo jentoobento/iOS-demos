@@ -22,8 +22,8 @@ Answers are now sorted randomly. Improved overall animations/styling. Added spla
 - [x] User should see a slide animation when going to the previous flashcard
 - [x] Push code to GitHub
 ## Optional
-- [ ] User should see a nicer flaschard with rounded corners, shadows, and animating when showing the first time
-- [ ] User should see all views properly layout when using the app on a phone of different sizes
+- [x] User should see a nicer flaschard with rounded corners, shadows, and animating when showing the first time
+- [x] User should see all views properly layout when using the app on a phone of different sizes
 - [x] Correct answer in multiple choice should be random
 
 ## Part 3
