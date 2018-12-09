@@ -57,8 +57,8 @@ User can tap flashcard to see the answer, can edit the card and the answers.
 ### App Walk-though
 
 <p float="left">
-<img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard2.gif" width=200>
 <img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard2-1.gif" width=200>
+<img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard2-2.gif" width=200>
 </p>
 <br>
 
