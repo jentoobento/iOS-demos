@@ -12,6 +12,7 @@ Answers are now sorted randomly. Improved overall animations/styling. Added spla
   <img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcards4-2.gif" width=200>
   <img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcards4-3.gif" width=200>
 </p>
+Visuals demonstrating the new animations, and auto sizing for different screen sizes/devices. 
 <br>
 
 ## Required
@@ -38,6 +39,7 @@ User can now create multiple cards and flip through them. User can delete cards 
 <img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard3-1.gif" width=200>
 <img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard3-2.gif" width=200>
 </p>
+Visuals demonstrating creation of multiple cards, deleting a card, and saving of data to local storage. Validation for multiple purposes.
 <br>
 
 ## Required
@@ -60,6 +62,7 @@ User can tap flashcard to see the answer, can edit the card and the answers.
 <img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard2-1.gif" width=200>
 <img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard2-2.gif" width=200>
 </p>
+Visuals demonstrating flipping the card over to see the answer and editing of a card. Validation for editing.
 <br>
 
 ## Required
@@ -79,7 +82,11 @@ User can tap the flashcard to see the answer or choose from multiple choice
 
 ### App Walk-though
 
-<img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard1-1.gif" width=200><br>
+<p>
+<img src="https://github.com/jentoobento/iOS-demos/blob/master/Flashcards-codepath/flashcard1-1.gif" width=200>
+</p>
+Visuals demonstrating pure bare bones of ultimate goals for this app. There are 2 ways to see the answer for the question, tapping the card (i.e. flipping it over) or choosing the correct answer from the multiple ones given.
+<br>
 
 ### Required User Stories
 - [x] 1. User sees question
