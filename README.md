@@ -1,2 +1,1 @@
-This repository holds all my endevours into the wonderful world of Xcode, iOS, and Swift. 
-
+# [Click here to see the Flashcard App!](https://github.com/jentoobento/iOS-demos/tree/master/Flashcards-codepath "Go to the Flashcard README page!")
